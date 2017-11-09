@@ -20,10 +20,10 @@ $channel->exchange_delete('system.elk');
 
 $channel->exchange_delete('system.teacher.notify');
 // Primeiro passo: criar um exchange(repassa informações para outras filas)
-$channel->exchange_declare('system.sales', 'direct', false, false, false); 
-$channel->exchange_declare('system.logging', 'direct', false, false, false); 
-$channel->exchange_declare('system.elk', 'direct', false, false, false); 
-$channel->exchange_declare('system.teacher.notify', 'direct', false, false, false);
+$channel->exchange_declare('system.sales', 'direct', false, true, false); 
+$channel->exchange_declare('system.logging', 'direct', false, true, false); 
+$channel->exchange_declare('system.elk', 'direct', false, true, false); 
+$channel->exchange_declare('system.teacher.notify', 'direct', false, true, false);
 
 $channel->queue_declare('queue.teacher.new',
 false,
